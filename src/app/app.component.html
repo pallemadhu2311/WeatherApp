@@ -1,0 +1,57 @@
+<div class="search" >
+  <form>
+    <input type="text" name="city" placeholder="Enter City" [(ngModel)]="city">&nbsp;
+    <input type="submit" (click)="onSubmit()">
+  </form>
+
+</div>
+
+<div class="container" *ngIf="weatherData" >
+  <div class="upper-data">
+    <img src="../assets/hotsummer.jpg" *ngIf="weatherData.main.temp >= 30"/>
+    <img src="../assets/cold.jpg" *ngIf="weatherData.main.temp < 30" />
+
+    <div class="weather-data">
+      <div class="location">{{weatherData.name}} - {{weatherData.sys.country}}</div>
+      <div class="temperature">{{ weatherData.main.temp - 273.15| number : '1.0-0' }}°C</div>
+    </div>
+  </div>
+  <div class="lower-data">
+    <div class="more-info-label">More Information</div>
+    <div class="more-info-container">
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="../assets/temp_min_icon_1.png" />
+          <span>Min</span>
+        </div>
+        <div class="info-block-value">{{weatherData.main.temp_min - 273.15 | number: '1.1-1' }}°C</div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="../assets/max_temp_icon.png" />
+          <span>Max</span>
+        </div>
+        <div class="info-block-value">{{weatherData.main.temp_max - 273.15 | number: '1.1-1'}}°C</div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="../assets/humidity.png" />
+          <span>Humidity</span>
+        </div>
+        <div class="info-block-value">{{weatherData.main.humidity}} %</div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="../assets/wind.png" />
+          <span>Wind Speed</span>
+        </div>
+        <div class="info-block-value">{{weatherData.wind.speed}} Km/h</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
