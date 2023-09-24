@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { WeatherService } from './services/weather.service';
 import { weatherData } from './models/weather.model';
 
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
