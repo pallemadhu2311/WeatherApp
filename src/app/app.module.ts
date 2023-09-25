@@ -9,6 +9,8 @@ import { TemperaturePipe } from './pipes/temperature.pipe';
 import { PressurePipe } from './pipes/pressure.pipe';
 import { TimePipe } from './pipes/time.pipe';
 import { WindspeedPipe } from './pipes/windspeed.pipe';
+import { WinddirectionPipe } from './pipes/winddirection.pipe';
+import { TimezonePipe } from './pipes/timezone.pipe';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { WindspeedPipe } from './pipes/windspeed.pipe';
     TemperaturePipe,
     PressurePipe,
     TimePipe,
-    WindspeedPipe
+    WindspeedPipe,
+    WinddirectionPipe,
+    TimezonePipe
   ],
   imports: [
     BrowserModule,

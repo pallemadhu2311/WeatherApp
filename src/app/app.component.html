@@ -41,6 +41,8 @@
       </div>
       <div class="info-block-value-two">
         {{ weatherData.sys.sunrise | time }}
+
+        
       </div>
     </div>
 
@@ -103,6 +105,29 @@
         {{ weatherData.rain && weatherData.rain['1h'] !== undefined ? weatherData.rain['1h'] + ' mm/h' : 'N/A' }}
       </div>
     </div>
+
+    <div class="info-block-two">
+      <div class="info-block-label-two">
+        <img src="../assets/winddirection.png" />
+        <span>Wind Degree</span>
+      </div>
+      <div class="info-block-value-two">
+        {{weatherData.wind.deg}}° ({{ weatherData.wind.deg | winddirection }})
+        
+      </div>
+    </div>
+
+    <div class="info-block-two">
+      <div class="info-block-label-two">
+        <img src="../assets/timezone.png" />
+        <span>Time Zone</span>
+      </div>
+      <div class="info-block-value-two">
+        {{weatherData.timezone | timezone}}
+        
+      </div>
+    </div>
+
 
   </div>
 </div>
