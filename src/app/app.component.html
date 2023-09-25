@@ -1,30 +1,167 @@
-<div class="search" >
+<div class="search">
   <form>
-    <input type="text" name="city" placeholder="Enter City" [(ngModel)]="city">&nbsp;
-    <input type="submit" (click)="onSubmit()">
+    <input
+      type="text"
+      name="city"
+      placeholder="Enter City"
+      [(ngModel)]="city"
+    />&nbsp;
+    <input type="submit" (click)="onSubmit()" />
   </form>
-
 </div>
 
-<div class="container" *ngIf="weatherData" >
+<!-- right side data screen starts here -->
+
+<div class="right-container" *ngIf="weatherData">
+  <div class="more-info-container-two">
+    <div class="info-block-two">
+      <div class="info-block-label-two">
+        <img src="../assets/feels_like.png" />
+        <span>Feels Like</span>
+      </div>
+      <div class="info-block-value-two">
+        {{ weatherData.main.feels_like | temperature }}
+      </div>
+    </div>
+
+    <div class="info-block-two">
+      <div class="info-block-label-two">
+        <img src="../assets/pressure.png" />
+        <span>Pressure</span>
+      </div>
+      <div class="info-block-value-two">
+        {{ weatherData.main.pressure | pressure }}
+      </div>
+    </div>
+
+    <div class="info-block-two">
+      <div class="info-block-label-two">
+        <img src="../assets/sunrise.png" />
+        <span>Sunrise</span>
+      </div>
+      <div class="info-block-value-two">
+        {{ weatherData.sys.sunrise | time }}
+
+        
+      </div>
+    </div>
+
+    <div class="info-block-two">
+      <div class="info-block-label-two">
+        <img src="../assets/sunset.png" />
+        <span>Sunset</span>
+      </div>
+      <div class="info-block-value-two">
+        {{ weatherData.sys.sunset | time }}
+      </div>
+    </div>
+
+    <div class="info-block-two">
+      <div class="info-block-label-two">
+        <img src="../assets/clouds.png" />
+        <span>Clouds</span>
+      </div>
+      <div class="info-block-value-two">
+        {{ weatherData.clouds.all }} %
+      </div>
+    </div>
+
+    <div class="info-block-two">
+      <div class="info-block-label-two">
+        <img src="../assets/quick.png" />
+        <span>Last Updated </span>
+      </div>
+      <div class="info-block-value-two">
+        {{ weatherData.dt| time }} 
+      </div>
+    </div>
+
+    <div class="info-block-two">
+      <div class="info-block-label-two">
+        <img src="../assets/haze.png" *ngIf="weatherData.weather[0].description === 'haze' "/>
+        <img src="../assets/lightrain.png" *ngIf="weatherData.weather[0].main === 'Rain' "/>
+        <img src="../assets/clearsky.png" *ngIf="weatherData.weather[0].description === 'clear sky' "/>
+        <img src="../assets/snow.png" *ngIf="weatherData.weather[0].main === 'Snow' "/>
+        <img src="../assets/scatteredcloud.png" *ngIf="weatherData.weather[0].description === 'scattered clouds' "/>
+        <img src="../assets/overcasrclouds.png" *ngIf="weatherData.weather[0].description === 'overcast clouds' "/>
+        <img src="../assets/mist.png" *ngIf="weatherData.weather[0].description === 'mist' "/>
+        <img src="../assets/light_intensity_drizzle.png" *ngIf="weatherData.weather[0].description === 'light intensity drizzle' "/>
+        <img src="../assets/thunderstorm.png" *ngIf="weatherData.weather[0].description === 'thunderstorm' "/>
+        <img src="../assets/broken_clouds.png" *ngIf="weatherData.weather[0].description === 'broken clouds' "/>
+        <img src="../assets/few_clouds.png" *ngIf="weatherData.weather[0].description === 'few clouds' "/>
+        <span>Weather</span>
+      </div>
+      <div class="info-block-value-two" >
+        {{weatherData.weather[0].description}} 
+      </div>
+    </div>
+
+    <div class="info-block-two">
+      <div class="info-block-label-two">
+        <img src="../assets/rainmm.png" />
+        <span>Rain Percentage</span>
+      </div>
+      <div class="info-block-value-two">
+        {{ weatherData.rain && weatherData.rain['1h'] !== undefined ? weatherData.rain['1h'] + ' mm/h' : 'N/A' }}
+      </div>
+    </div>
+
+    <div class="info-block-two">
+      <div class="info-block-label-two">
+        <img src="../assets/winddirection.png" />
+        <span>Wind Degree</span>
+      </div>
+      <div class="info-block-value-two">
+        {{weatherData.wind.deg}}° ({{ weatherData.wind.deg | winddirection }})
+        
+      </div>
+    </div>
+
+    <div class="info-block-two">
+      <div class="info-block-label-two">
+        <img src="../assets/timezone.png" />
+        <span>Time Zone</span>
+      </div>
+      <div class="info-block-value-two">
+        {{weatherData.timezone | timezone}}
+        
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+<!-- right side data screen ends here -->
+
+<!-- left side data screen starts here -->
+
+<div class="container" *ngIf="weatherData">
   <div class="upper-data">
-    <img src="../assets/hotsummer.jpg" *ngIf="weatherData.main.temp >= 30"/>
-    <img src="../assets/cold.jpg" *ngIf="weatherData.main.temp < 30" />
+    <img src="../assets/hotsummer.jpg" *ngIf="weatherData.main.temp > 30" />
+    <img src="../assets/cold.jpg" *ngIf="weatherData.main.temp <= 30" />
 
     <div class="weather-data">
-      <div class="location">{{weatherData.name}} - {{weatherData.sys.country}}</div>
-      <div class="temperature">{{ weatherData.main.temp - 273.15| number : '1.0-0' }}°C</div>
+      <div class="location">
+        {{ weatherData.name }} - {{ weatherData.sys.country }}
+      </div>
+      <div class="temperature">
+        {{ weatherData.main.temp | number : "1.0-0" }}°C
+      </div>
     </div>
   </div>
   <div class="lower-data">
-    <div class="more-info-label">More Information</div>
+    <div class="more-info-label">More Information</div> 
+    
     <div class="more-info-container">
       <div class="info-block">
         <div class="info-block-label">
           <img src="../assets/temp_min_icon_1.png" />
           <span>Min</span>
         </div>
-        <div class="info-block-value">{{weatherData.main.temp_min - 273.15 | number: '1.1-1' }}°C</div>
+        <div class="info-block-value">
+          {{ weatherData.main.temp_min | number : "1.1-1" }}°C
+        </div>
       </div>
 
       <div class="info-block">
@@ -32,7 +169,9 @@
           <img src="../assets/max_temp_icon.png" />
           <span>Max</span>
         </div>
-        <div class="info-block-value">{{weatherData.main.temp_max - 273.15 | number: '1.1-1'}}°C</div>
+        <div class="info-block-value">
+          {{ weatherData.main.temp_max | number : "1.1-1" }}°C
+        </div>
       </div>
 
       <div class="info-block">
@@ -40,7 +179,7 @@
           <img src="../assets/humidity.png" />
           <span>Humidity</span>
         </div>
-        <div class="info-block-value">{{weatherData.main.humidity}} %</div>
+        <div class="info-block-value">{{ weatherData.main.humidity }} %</div>
       </div>
 
       <div class="info-block">
@@ -48,10 +187,14 @@
           <img src="../assets/wind.png" />
           <span>Wind Speed</span>
         </div>
-        <div class="info-block-value">{{weatherData.wind.speed}} Km/h</div>
+        <div class="info-block-value">
+          {{ weatherData.wind.speed | windspeed }}
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+<!-- left side data screen ends here -->
 
 <router-outlet></router-outlet>
