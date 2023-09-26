@@ -5,3 +5,4 @@ node_modules
 src/.DS_Store
 .angular/cache/16.2.3
 .angular
+.angular/cache
