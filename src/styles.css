@@ -36,7 +36,6 @@ body {
   background-color: var(--blue-2);
   border-radius: 20px;
   box-shadow: 10px 10px 10px var(--shadow-dark);
-  
 }
 
 .upper-data,
@@ -94,6 +93,12 @@ body {
   color: var(--white);
 }
 
+.more-info-label-two {
+  color: var(--white);
+  margin-top: 10px;
+}
+
+
 .more-info-container {
   flex: 1;
   background-color: var(--shadow-light);
@@ -149,13 +154,13 @@ body {
   font-size: 0.9em;
 }
 
-.search{
+.search {
   margin-bottom: 1em;
   text-align: center;
 }
 
-.search input{
-  background-color:var(--shadow-light);
+.search input {
+  background-color: var(--shadow-light);
   outline: none;
   border: none;
   border-radius: 20px;
@@ -166,46 +171,47 @@ body {
 }
 
 
-.right-container{
-
+.right-container {
   float: right;
   position: absolute;
   top: 0;
   right: 0;
-  margin-top: 40px;
+  margin-top: 120px;
   width: 850px;
   margin-right: 50px;
-  height: 90%;
+  height: 73.5%;
   border-radius: 10px;
   overflow: hidden;
   background-color: var(--shadow-light);
 }
 
 
-.more-info-container-two{
+.more-info-container-two {
   flex: 1;
   background-color: var(--shadow-light);
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  border-top-right-radius: 10px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border-top-right-radius: 1px;
   border-top-left-radius: 10px;
   margin-left: 10px;
-  margin-top: 1em;
   margin-right: 10px;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
+  margin-top: 20px;
+  
+  
 }
 
-.info-block-two{
+.info-block-two {
   width: 50%;
   display: flex;
-  flex-direction: row; 
+  flex-direction: row;
   margin-top: 15px;
   margin-bottom: 10px;
 }
 
-.info-block-label-two{
+.info-block-label-two {
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -213,10 +219,10 @@ body {
   align-items: center;
   margin-top: 10px;
   margin-bottom: 10px;
-  
+
 }
 
-.info-block-value-two{
+.info-block-value-two {
   width: 50%;
   display: flex;
   justify-content: flex-start;
@@ -232,3 +238,229 @@ body {
   color: var(--white);
   font-size: 0.7em;
 }
+
+/* Add this at the end for mobile responsiveness */
+
+@media (max-width: 768px) {
+  body {
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+
+  .main-container {
+    display: flex;
+    /* Set to display: flex */
+    flex-direction: column;
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  .right-container {
+    width: 100%;
+    margin: 1em 0;
+    /* Adjust margin as needed */
+    border-radius: 0;
+    position: static;
+    display: flex;
+  }
+
+  .more-info-container-two,
+  .info-block-two,
+  .info-block-label-two,
+  .info-block-value-two {
+    width: 100%;
+  }
+
+  .search {
+    margin-bottom: 0.5em;
+  }
+
+  .search input {
+    width: 100%;
+  }
+}
+
+/* Adjust other styles for tablet and mobile devices as needed */
+
+@media (max-width: 576px) {
+  body {
+    margin-left: 5px;
+    margin-top: 5px;
+  }
+
+  .container {
+    margin-top: 20px;
+    display: flex;
+    /* Set to display: flex */
+    flex-direction: column;
+
+  }
+
+  .container {
+    width: 100%;
+    height: 70vh;
+  }
+
+  .upper-data img {
+    object-fit: none;
+  }
+
+  .right-container {
+    width: 100%;
+    margin: 1em 0;
+    /* Adjust margin as needed */
+    border-radius: 0;
+    position: static;
+  }
+
+  .right-container {
+    width: 100%;
+    /* Ensure the right container takes full width */
+    margin-top: 0.5em;
+    /* Adjust margin as needed */
+  }
+
+  .more-info-label-two {
+    color: var(--white);
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  .more-info-container-two,
+  .info-block-two,
+  .info-block-label-two,
+  .info-block-value-two {
+    width: 100%;
+    display: flex;
+
+
+  }
+
+  .search {
+    margin-bottom: 0.5em;
+  }
+
+
+  .search input {
+    width: 100%;
+  }
+}
+
+/* Keyframe animation for slow wiggle effect */
+@keyframes slowWiggle {
+  0% {
+    transform: translateX(0);
+  }
+
+  20% {
+    transform: translateX(-2px);
+  }
+
+  40% {
+    transform: translateX(2px);
+  }
+
+  60% {
+    transform: translateX(-2px);
+  }
+
+  80% {
+    transform: translateX(2px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Apply the slow wiggle animation on hover */
+.info-block-label-two:hover img,
+.info-block-label-two:hover span {
+  animation: slowWiggle 0.8s ease infinite;
+  /* Adjust the animation duration */
+}
+
+
+.info-block-label:hover img,
+.info-block-label:hover span {
+  animation: slowWiggle 0.8s ease infinite;
+  /* Adjust the animation duration */
+}
+
+
+
+/* Other styles remain the same... */
+
+/* Animation for the info blocks */
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Apply the animation to each info block */
+.info-block-two,
+.info-block,
+.info-block-value-two,
+.info-block-value {
+  animation: slideInFromLeft 1s ease forwards;
+  opacity: 0;
+  /* Initially hide the element */
+}
+
+/* Delay each info block's animation */
+.info-block-two:nth-child(1),
+.info-block:nth-child(1) {
+  animation-delay: 0.8s;
+}
+
+.info-block-two:nth-child(2),
+.info-block:nth-child(2) {
+  animation-delay: 0.8s;
+}
+
+.info-block-two:nth-child(3),
+.info-block:nth-child(3) {
+  animation-delay: 0.8s;
+}
+
+.info-block-two:nth-child(4),
+.info-block:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+.info-block-two:nth-child(5) {
+  animation-delay: 0.8s;
+}
+
+.info-block-two:nth-child(6) {
+  animation-delay: 0.8s;
+}
+
+.info-block-two:nth-child(7) {
+  animation-delay: 0.8s;
+}
+
+.info-block-two:nth-child(8) {
+  animation-delay: 0.8s;
+}
+
+.info-block-two:nth-child(9) {
+  animation-delay: 0.8s;
+}
+
+.info-block-two:nth-child(10) {
+  animation-delay: 0.8s;
+}
+
+/* Add delay for other info blocks as needed */
+
+/* Other styles remain the same... */
