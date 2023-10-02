@@ -88,6 +88,8 @@
 
 <!-- left side data screen ends here -->
 
+<!-- -------------------------------------------------------------- -->
+
 <!-- right side data screen starts here -->
 
 <div class="right-container " *ngIf="weatherData">
@@ -214,85 +216,5 @@
 </div>
 
 <!-- right side data screen ends here -->
-<<<<<<< HEAD
-=======
 
-<!-- left side data screen starts here -->
-
-<div class="container" *ngIf="weatherData">
-  <div class="upper-data">
-    <!-- <img src="../assets/hotsummer.jpg" *ngIf="weatherData.main.temp > 30" />
-    <img src="../assets/cold.jpg" *ngIf="weatherData.main.temp <= 30" /> -->
-
-    <img src="../assets/haze_wall.jpg" *ngIf="weatherData.weather[0].description === 'haze' ">
-    <img src="../assets/moderate_rain_wall.jpg" *ngIf="weatherData.weather[0].description === 'moderate rain' "/>
-    <img src="../assets/clearsky_wall.jpg" *ngIf="weatherData.weather[0].description === 'clear sky' ">
-    <img src="../assets/lightsnow_wall.jpg" *ngIf="weatherData.weather[0].description === 'light snow' ">
-    <img src="../assets/scatteredclouds_wall.jpg" *ngIf="weatherData.weather[0].description === 'scattered clouds' "/>
-    <img src="../assets/overcast_clouds_wall.jpg" *ngIf="weatherData.weather[0].description === 'overcast clouds' ">
-    <img src="../assets/mist_wall.jpg" *ngIf="weatherData.weather[0].description === 'mist' ">
-    <img src="../assets/light_intensity_drizzle_wall.jpg" *ngIf="weatherData.weather[0].description === 'light intensity drizzle' "/>
-    <img src="../assets/thunderstroms_wall.jpg" *ngIf="weatherData.weather[0].description === 'thunderstorm' "/>
-    <img src="../assets/brokenclouds_wall.jpg" *ngIf="weatherData.weather[0].description === 'broken clouds' ">
-    <img src="../assets/fewclouds_wall.jpg" *ngIf="weatherData.weather[0].description === 'few clouds' ">
-    
-    
-
-    <div class="weather-data">
-      <div class="location">
-        {{ weatherData.name }} - {{ weatherData.sys.country }}
-      </div>
-      <div class="temperature">
-        {{ weatherData.main.temp | number : "1.0-0" }}°C
-      </div>
-    </div>
-  </div>
-  <div class="lower-data">
-    <div class="more-info-label">More Information</div> 
-    
-    <div class="more-info-container">
-      <div class="info-block">
-        <div class="info-block-label">
-          <img src="../assets/temp_min_icon_1.png" />
-          <span>Min</span>
-        </div>
-        <div class="info-block-value">
-          {{ weatherData.main.temp_min | number : "1.1-1" }}°C
-        </div>
-      </div>
-
-      <div class="info-block">
-        <div class="info-block-label">
-          <img src="../assets/max_temp_icon.png" />
-          <span>Max</span>
-        </div>
-        <div class="info-block-value">
-          {{ weatherData.main.temp_max | number : "1.1-1" }}°C
-        </div>
-      </div>
-
-      <div class="info-block">
-        <div class="info-block-label">
-          <img src="../assets/humidity.png" />
-          <span>Humidity</span>
-        </div>
-        <div class="info-block-value">{{ weatherData.main.humidity }} %</div>
-      </div>
-
-      <div class="info-block">
-        <div class="info-block-label">
-          <img src="../assets/wind.png" />
-          <span>Wind Speed</span>
-        </div>
-        <div class="info-block-value">
-          {{ weatherData.wind.speed | windspeed }}
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- left side data screen ends here -->
-
->>>>>>> 97069db9af2d941a0125a665ac03eb679d69f530
 <router-outlet></router-outlet>
